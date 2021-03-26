@@ -13,17 +13,17 @@ contract Shipping { //creation du contrat "shipping"
         uint ID;
         string State;
     }
-    function _creationcommande(uint ID) private { //fonction de création de commande
+    function _creationcommande(uint ID) public { //fonction de création de commande
         etatcommande = Etat.Pending;
         emit Creation(ID, etatcommande); //appel de l'evenement de creation de la commande
     }
 
-    function _expeditioncommande(uint ID) private { //fonction d'expedition de la commande
+    function _expeditioncommande(uint ID) public { //fonction d'expedition de la commande
         etatcommande = Etat.Shipped;
         emit Expedition(ID, etatcommande); //appel de l'evenement d'expedition de la commande
     }
 
-    function _livraisoncommande(uint ID) private { //fonction de livraison de la commande
+    function _livraisoncommande(uint ID) public { //fonction de livraison de la commande
         etatcommande = Etat.Delivered;
         emit Livraison(ID, etatcommande); //appel de l'evenement de livraison de la commande
     }
